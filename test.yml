@@ -1,0 +1,4 @@
+- hosts: sz2
+
+  tasks:
+  - include: 'tasks/main.yml'

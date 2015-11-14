@@ -1,0 +1,30 @@
+---
+- name: install deps with yum
+  shell: yum -y groupinstall "Development tools"
+
+- name: install deps with yum
+  yum: name=mysql.x86_64 state=latest
+
+- name: install deps with yum
+  yum: name=openssl-devel state=latest
+
+- name: install deps with yum
+  yum: name=libxslt-devel state=latest
+
+- name: install deps with yum
+  yum: name=readline-devel state=latest
+
+- name: install deps with yum
+  yum: name=htop state=latest
+
+- name: download python source
+  shell: wget https://www.python.org/ftp/python/3.5.0/Python-3.5.0.tgz -O /tmp/Python-3.5.0.tgz
+
+- name: decompress
+  shell: cd /tmp && tar zxvf Python-3.5.0.tgz 
+
+- name: build
+  shell: cd /tmp/Python-3.5.0 && ./configure && make && make install
+
+- name: install pip3
+  shell: curl 'https://bootstrap.pypa.io/get-pip.py' | python3
